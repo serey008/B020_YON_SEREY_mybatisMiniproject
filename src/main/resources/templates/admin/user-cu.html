@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+	  layout:decorator="/admin/admin_layout">
+<head>
+<title>User Cu</title>
+	<th:block layout:fragment="style">
+		 <!-- CORE CSS FRAMEWORK - START -->
+        <link th:href="@{/res/assets/plugins/pace/pace-theme-flash.css}" rel="stylesheet" type="text/css" media="screen"/>
+        <link th:href="@{/res/assets/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/res/assets/plugins/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/res/assets/fonts/font-awesome/css/font-awesome.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/res/assets/css/animate.min.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/res/assets/plugins/perfect-scrollbar/perfect-scrollbar.css}" rel="stylesheet" type="text/css"/>
+        <!-- CORE CSS FRAMEWORK - END -->
+
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+
+
+        <!-- CORE CSS TEMPLATE - START -->
+        <link th:href="@{/res/assets/css/style.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/res/assets/css/responsive.css}" rel="stylesheet" type="text/css"/>
+        <!-- CORE CSS TEMPLATE - END -->
+	</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+	<!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <section class="wrapper main-wrapper" style=''>
+
+                    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                        <div class="page-title">
+
+                            <div class="pull-left">
+                                <h1 class="title">Add User</h1>                            </div>
+
+                            <div class="pull-right hidden-xs">
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <a href="index.html"><i class="fa fa-home"></i>Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="form-elements.html">Forms</a>
+                                    </li>
+                                    <li class="active">
+                                        <strong>user</strong>
+                                    </li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="col-lg-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">User Information</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <i class="box_toggle fa fa-chevron-down"></i>
+                                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                    <i class="box_close fa fa-times"></i>
+                                </div>
+                            </header>
+                            <div class="content-body">    
+                            <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <form id="msg_validate" action="javascript:;" novalidate="novalidate" th:action="${addStatus==true?'/user/save':'/user/update'}" method="POST" th:object="${user}">
+                                            <div class="form-group">
+                                                <label class="form-label" for="formfield1" >Username</label>  
+                                                <div class="controls">
+                                                    <input type="text" class="form-control" 
+                                                    th:field="*{username}" placeholder="username"/>
+                                                   <!--  <span th:if="*{#fields.hasErrors('username')}" th:errors="*{username}" th:text="#{error}"></span> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="form-label" for="formfield2">Email</label>
+                                              
+                                                <div class="controls">
+                                                    <input type="text" class="form-control" th:field="*{email}" placeholder="some@example.com" id="formfield2" name="formfield2" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="formfield1">Phone Number</label>
+                                           
+                                                <div class="controls">
+                                                    <input type="text" th:field="*{phonenumber}"  class="form-control" id="formfield1" name="formfield1" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="formfield1">Gender</label>
+                                           
+                                                <select class="form-control m-bot15" th:field="*{gender}">
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>        
+                                                </select>
+                                            </div>   
+                                            
+                                             <div class="form-group" style="visibility: hidden">
+                                                <label th:text=#{user_hash}>User Hash</label>
+                                                <input type="text" class="form-control" th:field="*{user_hash}" name="user_hash">
+                                            </div>   
+                                            
+                                            <div class="pull-right">
+                                                <button type="submit" class="btn btn-success" >Save</button>
+                                                <button type="button" class="btn">Cancel</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section></div>
+              
+                </section>
+            </section>
+    <!-- END CONTENT -->
+	</div>
+
+	<th:block layout:fragment="script">
+		<script th:src="@{/res/assets/js/jquery-1.11.2.min.js}" type="text/javascript"></script> 
+        <script th:src="@{/res/assets/js/jquery.easing.min.js}" type="text/javascript"></script> 
+        <script th:src="@{/res/assets/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script> 
+        <script th:src="@{/res/assets/plugins/pace/pace.min.js}" type="text/javascript"></script>  
+        <script th:src="@{/res/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js}" type="text/javascript"></script> 
+        <script th:src="@{/res/assets/plugins/viewport/viewportchecker.js}" type="text/javascript"></script>  
+	</th:block>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"/>
+<title></title>
+</head>
+
+<!-- SIDEBAR - START -->
+<div class="page-sidebar ">
+
+	<!-- MAIN MENU - START -->
+	<div class="page-sidebar-wrapper" id="main-menu-wrapper">
+		<!-- USER INFO - START -->
+		<div class="profile-info row">
+			<div class="profile-image col-md-4 col-sm-4 col-xs-4">
+				<a href="ui-profile.html"> 
+				<img th:src="@{/res/data/profile/profile1.jpg}"
+					class="img-responsive img-circle">
+				</a>
+			</div>
+			<div class="profile-details col-md-8 col-sm-8 col-xs-8">
+				<h3>
+					<a href="ui-profile.html">Oun Da</a>
+					<!-- Available statuses: online, idle, busy, away and offline -->
+					<span class="profile-status online"></span>
+				</h3>
+				<p class="profile-title">Web Developer</p>
+			</div>
+		</div>
+		<!-- USER INFO - END -->
+	
+			<ul class='wraplist'>
+            <li >
+                <a th:href="@{/admin}"> 
+                    <i class="fa fa-dashboard"></i> 
+                    <span class="title" th:text="#{Dashboard}"></span>
+                </a>
+            </li>
+            <li class=""> 
+                 <a href="javascript:;">
+                    <i class="fa fa-suitcase"></i>
+                   <span class="title" th:text="#{User}"></span>
+                   <span class="arrow "></span>
+                 </a>
+            <ul class="sub-menu" >
+            
+                 <li class="">
+                    <a th:href="@{/user/user-list}"> 
+                        <i class="fa fa-dollar"></i> 
+                        <span class="title" th:text="#{User-List}"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a th:href="@{/user/add}"> 
+                        <i class="fa fa-check"> </i> 
+                        <span class="title" th:text="#{Add-User}"></span>
+                    </a>
+                </li>
+               
+            </ul>
+            </li>
+
+          <li class=""> 
+                 <a href="javascript:;">
+                    <i class="fa fa-suitcase"></i>
+                   <span class="title" th:text="#{Role}"></span>
+                   <span class="arrow "></span>
+                 </a>
+            <ul class="sub-menu" >
+                     <li class="">
+                <a th:href="@{/admin/role-list}"> 
+                    <i class="fa fa-info"></i> 
+                    <span class="title" th:text="#{Role-List}"></span>
+                </a>
+            </li>
+            <li class="">
+                <a th:href="@{/admin/role-cu}"> 
+                    <i class="fa fa-circle"></i> 
+                    <span class="title" th:text="#{Add-Role}"></span>
+                </a>
+            </li>
+            </ul>
+            </li>   
+        </ul>
+			
+	</div>
+	<!-- MAIN MENU - END -->
+</div>
+</html>
+<!--  SIDEBAR - END -->
